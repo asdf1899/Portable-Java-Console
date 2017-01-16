@@ -6,7 +6,21 @@ def main():
     print(" ")
     print("Modify the config file to set your JDK bin directory path")
     PATH = readConfig()
-
+    print("Current path: " + PATH)
+    print(" ")
+    while True:
+        print("1) Run a java file")
+        print("2) Help")
+        print("3) Exit")
+        shell = input(">> ")
+        if shell == "1":
+            try:
+                print("Insert the file name without the extension")
+                filename = input("$> ")
+                open(filename + ".java")
+            except IOError:
+                print("Error: File not found - " + filename)
+                print(" ")
 def readConfig():
     f = open("config.txt")
     for ff in f.readlines():
