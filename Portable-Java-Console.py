@@ -1,4 +1,5 @@
 #-*- coding: UTF-8 -*-
+
 import shutil, os
 
 def main():
@@ -39,6 +40,13 @@ def execute(PATH, filename):
     shutil.copy2(PATH + filename + ".class", currentDir);
     executeBat(PATH, filename)
     #os.popen("start " + PATH + "java " + filename).read()
+
+def executeBat(PATH, filename):
+    f = open("exec.bat", "w")      
+    f.write("cd " + PATH + "\n")
+    f.write("java " + filename + "\n")
+    f.write("PAUSE")
+    f.close()
 
 def readConfig():
     f = open("config.txt")
