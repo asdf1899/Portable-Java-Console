@@ -21,6 +21,11 @@ def main():
             except IOError:
                 print("Error: File not found - " + filename)
                 print(" ")
+        elif shell == "2":
+            Help(PATH)
+        elif shell == "3":
+            break
+        
 def readConfig():
     f = open("config.txt")
     for ff in f.readlines():
@@ -28,6 +33,8 @@ def readConfig():
     if file != file + "/":
         file= file+ "/"
     return file
+
+def Help(PATH):
 
 if __name__ == "__main__":
     main()
