@@ -4,7 +4,7 @@ import shutil, os
 def main():
     print("Portable Java Console v1.0")
     print(" ")
-    print("Modify the config file to set your JDK bin directory path")
+    print("Modify the config file to set your JDK bin folder path")
     PATH = readConfig()
     print("Current path: " + PATH)
     print(" ")
@@ -32,6 +32,13 @@ def main():
             break
 
 def execute(PATH, filename):
+    currentFile = os.path.realpath(filename + ".java")
+    currentDir = os.path.dirname(currentFile)
+    shutil.copy2(currentFile, PATH + filename + ".java")
+    os.popen("start " + PATH+ "javac " + PATH + filename + ".java").read()
+    shutil.copy2(PATH + filename + ".class", currentDir);
+    executeBat(PATH, filename)
+    #os.popen("start " + PATH + "java " + filename).read()
 
 def readConfig():
     f = open("config.txt")
