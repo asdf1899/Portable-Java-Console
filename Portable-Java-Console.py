@@ -2,6 +2,7 @@
 __author__ = "Anas Araid"
 
 import shutil, os
+from time import sleep
 
 def main():
     print("Portable Java Console v1.0")
@@ -26,6 +27,9 @@ def main():
                     open(filename + ".java")
                     try:
                         execute(PATH, filename)
+                        sleep(1)
+                        os.remove(PATH + filename +".java")
+                        os.remove(PATH + filename +".class")
                     except IOError:
                         print("Error: " + PATH + " doesn't exit")
                         print(" ")
@@ -54,6 +58,7 @@ def executeBat(PATH, filename):
     f.close()
     os.startfile("exec.bat")
 
+    
 def readConfig():
     f = open("config.txt")
     for ff in f.readlines():
