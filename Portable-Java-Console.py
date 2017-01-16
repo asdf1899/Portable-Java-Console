@@ -18,6 +18,11 @@ def main():
                 print("Insert the file name without the extension")
                 filename = input("$> ")
                 open(filename + ".java")
+                try:
+                    execute(PATH, filename)
+                except IOError:
+                    print("Error: " + PATH + " doesn't exit")
+                    print(" ")
             except IOError:
                 print("Error: File not found - " + filename)
                 print(" ")
@@ -25,7 +30,9 @@ def main():
             Help(PATH)
         elif shell == "3":
             break
-        
+
+def execute(PATH, filename):
+
 def readConfig():
     f = open("config.txt")
     for ff in f.readlines():
