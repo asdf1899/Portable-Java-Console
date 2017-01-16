@@ -9,6 +9,8 @@ def main():
     PATH = readConfig()
     print("Current path: " + PATH)
     print(" ")
+    print("Type '2' (help) for config information")
+    print(" ")
     while True:
         print("1) Run a java file")
         print("2) Help")
@@ -47,6 +49,7 @@ def executeBat(PATH, filename):
     f.write("java " + filename + "\n")
     f.write("PAUSE")
     f.close()
+    os.startfile("exec.bat")
 
 def readConfig():
     f = open("config.txt")
