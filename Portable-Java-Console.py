@@ -1,4 +1,5 @@
 #-*- coding: UTF-8 -*-
+__author__ = "Anas Araid"
 
 import shutil, os
 
@@ -60,14 +61,20 @@ def readConfig():
     try:
         if file != file + "/":
             file= file+ "/"
+        if checkPath(file) == False:
+            print("FATAL ERROR: Invalid JDK bin folder path")
+            return False
+        else:
             return file
     except UnboundLocalError:
         print("FATAL ERROR: Config file empty")
         print("Please set your JDK bin folder path in the config.txt")
-        print(" ")
         return False
 
-
+def checkPath(file):
+    exist = os.path.isdir(file)
+    return exist
+    
 def Help(PATH):
     print(" ")
     print("Portable Java Console v1.0 Copyright 2016 Anas Araid")
