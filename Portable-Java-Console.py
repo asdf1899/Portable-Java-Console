@@ -42,6 +42,20 @@ def readConfig():
     return file
 
 def Help(PATH):
+    print(" ")
+    print("Portable Java Console v1.0 Copyright 2016 Anas Araid")
+    print(" ")
+    print("Current path: " + PATH)
+    print(" ")
+    print("Set your JDK bin folder path in the config.txt ")
+    print("The path MUST NOT have spaces or quotation marks. So move it somewhere else. ")
+    print("Ex. wrong path --> 'C:/Program Files/Java/jdk-version/bin'")
+    print("Ex. right path --> 'C:/jdk-version/bin' ")
+    print(" or F:/jdk-version/bin")
+    print(" ")
+    print("Insert the script file name without the extension.")
+    print("Ex. filename")
+    print(" ")
 
 if __name__ == "__main__":
     main()
